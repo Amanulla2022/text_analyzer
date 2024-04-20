@@ -1,6 +1,8 @@
 # Text Analyzer
 Text Analyzer is a simple free online tool for SEO web content analysis that helps you find the most frequent phrases and words, the number of characters, words, sentences, and paragraphs, and the estimated read and speak time of your content.
 
+## [Hosted_Link](https://text-analyzer-apiwiz-9rv7awf1u-amanullas-projects.vercel.app/)
+
 ## Features
 Analyze text to get insights about:
 Toggle between word input and paragraph input for analysis
