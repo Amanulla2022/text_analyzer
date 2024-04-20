@@ -76,12 +76,26 @@ const ParagraphTab = () => {
     }, 0);
     setPunctuations(punctuationCount);
   };
+
+  //   debounce
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return function (...args) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  };
+
+  const debounceHandleChange = debounce(handleChange, 500);
+
   return (
     <div className="mt-4 flex flex-col gap-4">
       <textarea
         className="border w-full h-60 resize-none p-2"
         placeholder="Type or copy/paste content here..."
-        onChange={handleChange}
+        onChange={debounceHandleChange}
       ></textarea>
       <div>
         <table className="border border-gray-400 w-full ">

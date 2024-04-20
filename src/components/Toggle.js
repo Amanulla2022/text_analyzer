@@ -10,12 +10,12 @@ const Toggle = () => {
   };
   return (
     <>
-      <div className="bg-gray-100 flex justify-around w-full md:w-1/2 p-2 border mt-8">
+      <div className="bg-[#F9FBFE] flex justify-around w-full md:w-1/2 p-2 border mt-8">
         <button
           className={`w-1/2 py-2 duration-300 ${
             toggledElement === "wordInput"
               ? "bg-white border-2"
-              : "text-gray-500"
+              : "text-[#67768A]"
           }`}
           onClick={() => toggleEffect("wordInput")}
         >
@@ -25,7 +25,7 @@ const Toggle = () => {
           className={`w-1/2 py-2 duration-300  ${
             toggledElement === "paragraph"
               ? "bg-white border-2"
-              : "text-gray-500 "
+              : "text-[#67768A] "
           }`}
           onClick={() => toggleEffect("paragraph")}
         >
