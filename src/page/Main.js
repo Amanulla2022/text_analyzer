@@ -4,7 +4,7 @@ import Toggle from "./../components/Toggle";
 
 const Main = () => {
   return (
-    <div>
+    <div className="m-8">
       <Header />
       <Toggle />
     </div>
