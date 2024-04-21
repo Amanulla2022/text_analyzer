@@ -6,6 +6,7 @@ const WordTab = () => {
   const [characterCount, setCharacterCount] = useState(0);
   const [wordCount, setWordCount] = useState(0);
   const [details, setDetails] = useState(null);
+  const [error, setError] = useState(false);
 
   //   handle on change
   const handleChange = (e) => {
@@ -36,8 +37,18 @@ const WordTab = () => {
   const debounceHandleChange = debounce(handleChange, 500);
 
   const fetchData = async () => {
-    const data = await fetchWordDetails(word);
-    setDetails(data);
+    try {
+      const data = await fetchWordDetails(word);
+      if (data.error) {
+        setError(true);
+      } else {
+        setDetails(data);
+        setError(false);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(true);
+    }
   };
   return (
     <div className="flex flex-col gap-4 mt-4">
@@ -73,7 +84,9 @@ const WordTab = () => {
         <p className="flex gap-12 items-center">
           <span className="font-semibold text-[#566375]">Definition:</span>
 
-          {details ? (
+          {error ? (
+            <span className="font-semibold w-1/4">Word not found...</span>
+          ) : details ? (
             <span className="font-semibold md:w-1/4 w-full">
               {details.definition}
             </span>
